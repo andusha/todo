@@ -29,20 +29,15 @@ const Project = (name) => {
     const getChilds = () => childs
     const deleteAllChilds = () => childs.length = 0
 
-    return {getName, reName, addChild, deleteChild, getChilds, deleteAllChilds}
+    return {name, childs, getName, reName, addChild, deleteChild, getChilds, deleteAllChilds}
 }
 
-const Todo = (title, parent, description = '', dueDate = format(Date.now(), 'PP'), complete = false) => {
-    let parents = [parent]
-
+const Todo = (title, parent, dueDate = format(Date.now(), 'PP'), complete = false) => {
     const getTitle = () => title
     const renameTitle = (newTitle) => title = newTitle
 
     const isComplete = () => complete
     const toggleComplete = () => complete = !complete
-
-    const getDescription = () => description
-    const reNameDescription = (newDescription) => description = newDescription
 
     const getDueDate = () => dueDate
     const newDueDate = (newDueDate) => {
@@ -50,16 +45,14 @@ const Todo = (title, parent, description = '', dueDate = format(Date.now(), 'PP'
         dueDate = format(parsedDueDate, 'PP')
     }
 
-    const getParent = () => parents[0]
+    const getParent = () => parent
     const addParent = (newParent) => parents.push(newParent)
 
     return {    
         getTitle, 
         renameTitle, 
         isComplete, 
-        toggleComplete, 
-        getDescription, 
-        reNameDescription, 
+        toggleComplete,  
         getDueDate, 
         newDueDate,
         addParent,

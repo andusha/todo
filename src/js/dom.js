@@ -1,7 +1,7 @@
 "use strict";
 import {ProjectList, Project, Todo} from './project.js';
 import closeSvg from '../icons/close.svg'
-
+import storage from './storage.js';
 
 const projectList = ProjectList()
 
@@ -27,7 +27,8 @@ function navPopup(){
     popup.addEventListener("submit", function(e){
         e.preventDefault()
         let projectName = e.currentTarget.projectName.value
-        projectList.addProject(Project(projectName))
+        let project = Project(projectName)
+        projectList.addProject(project)
         updateProjectList()
     })
 }
@@ -198,6 +199,15 @@ function createTodoElement (todo, count) {
 
     return div
 }
-export default navPopup
+
+window.addEventListener("unload", function() {
+    storage.saveProjectList(projectList)
+});
+
+document.addEventListener("DOMContentLoaded", function() {
+    storage.loadProjectList(projectList)
+    updateProjectList()
+});
+export {navPopup, projectList}
 
 
