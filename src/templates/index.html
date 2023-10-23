@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <header class="header">
+        <h1 class="header__name">TO DO</h1>
+    </header>
+    <main class="main">
+        <nav class="nav">
+            <h2 class="nav__title">Projects</h2>
+            <div class="nav__project-container"></div>
+            <button class="nav__button">
+                <img src="<%=require('../icons/plus.svg')%>" alt="" class="nav__button-inner-img">
+                <p class="nav__button-inner-text">add project</p>
+            </button>
+            <form class="nav__popup">
+                <input type="text" class="nav__input" id="projectName">
+                <div class="nav__popup-buttons">
+                    <button class="nav__popup-button-add" type="submit">add</button>
+                    <button class="nav__popup-button-delete" type="reset">delete</button>
+                </div>
+            </form>
+        </nav>
+        <div class="main__project-space">
+            <h1 class="main__title"></h1>
+            <div class="main__todo-container"></div>
+            <button class="main__todo-add">
+                <img src="<%=require('../icons/plus.svg')%>" alt="" class="nav__button-inner-img">
+                <p class="nav__button-inner-text">add task</p>
+            </button>
+        </div>
+    </main>
+    <footer class="footer">
+        <p class="footer__text">aboba</p>
+    </footer>
+</body>
+</html>
